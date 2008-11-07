@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Cuniculi Cavum [at MOGRIFY]</title>
+
+  <%= stylesheet_link_tag "screen" %>
+
+</head>
+
+<body>
+
+<h1><%= link_to "Cuniculi Cavum <span class=\"alt\">of</span> ...", root_path %></h1>
+
+<%= render_flash %>
+
+<%= yield %>
+
+<div id="navigation">
+  <ul>
+  <%- if logged_in? -%>
+    <li><%= link_to h(current_user.name), current_user_path %></li>
+    <li><%= link_to "Log Out", logout_path %></li>
+  <%- else -%>
+    <li><%= link_to "Log In / Register", login_path %></li>
+  <%- end -%>
+    <li><%= link_to "New Topic", new_topic_path %></li>
+  </ul>
+</div>
+
+<p id="copyright">
+  Powered by <a href="http://mogrify.net">Mogrify.</a>&nbsp;&nbsp;
+  Copyright &copy; 2008 Jason L Perry, most rights reserved.
+</p>
+
+</body>
+</html>

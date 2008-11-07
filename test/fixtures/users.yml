@@ -1,0 +1,11 @@
+jasper:
+  name: Jason L Perry
+  email: jasper@example.com
+  identity_url: http://ambethia.com/
+  time_zone: Eastern Time (US & Canada)
+
+dedguy:
+  name: James B Seaman
+  email: dedguy@example.com
+  identity_url: http://dedguy.net/
+  time_zone: Eastern Time (US & Canada)

@@ -1,0 +1,12 @@
+<div class="reply">
+
+  <div class="body">
+    <%= textilize h(reply.body) %>
+  </div>
+
+  <div class="authorship">
+    posted by <%= link_to h(reply.author.name), reply.author %></a>
+    <%= time_ago_in_words(reply.created_at) %> ago
+  </div>
+
+</div>
