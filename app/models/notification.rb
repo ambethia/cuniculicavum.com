@@ -4,8 +4,8 @@ class Notification < ActionMailer::Base
   def post(post, sent_at = Time.now)
     subject    "[Cuniculi Cavum] #{post.subject}"
     recipients User.notifiable_by_email.map { |u| "#{u.name} <#{u.email}>" }
-    from       "post.author.name <#{post.author.email}>"
-    reply_to   Notification.topic_reply_to(post)
+    from       "#{post.author.name} <#{post.author.email}>"
+    reply_to   "Cuniculi Cavum <#{Notification.topic_reply_to(post)}>"
     sent_on    sent_at
     body       :post => post
   end
