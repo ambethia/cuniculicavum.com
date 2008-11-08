@@ -4,7 +4,8 @@ class Notification < ActionMailer::Base
   def post(post, sent_at = Time.now)
     subject    "[Cuniculi Cavum] #{post.subject}"
     recipients User.notifiable_by_email.map { |u| "#{u.name} <#{u.email}>" }
-    from       post.author.email
+    from       "post.author.name <#{post.author.email}>"
+    reply_to   Notification.topic_reply_to(post)
     sent_on    sent_at
     body       :post => post
   end
@@ -22,7 +23,7 @@ class Notification < ActionMailer::Base
     else
     end
   end
-  
+
   def reply_body(mail)
     if mail.multipart?
       plain = mail.parts.select { |part| part.content_type == "text/plain" }
@@ -39,5 +40,9 @@ class Notification < ActionMailer::Base
     key = address.scan(/topic-(\d+)@.*/).flatten.first
     key ? key.to_i : nil
   end
-
+  
+  def self.topic_reply_to(post)
+    topic = post.respond_to?(:topic) ? post.topic : post
+    "topic-#{topic.id}@#{ActionMailer::Base.default_url_options[:host]}"
+  end
 end

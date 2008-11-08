@@ -1,7 +1,7 @@
 set :deploy_to, "/home/cuniculi/cuniculicavum.com"
 
 set :scm, :git
-set :repository,  "github.cuniculi_cavum:ambethia/cuniculicavum.com.git"
+set :repository, "github.cuniculi_cavum:ambethia/cuniculicavum.com.git"
 set :git_enable_submodules, true
 set :deploy_via, :remote_cache
 
