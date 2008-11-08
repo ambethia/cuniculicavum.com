@@ -1,4 +1,7 @@
 class RepliesController < ApplicationController
+  before_filter :find_reply,        :only => [:edit, :update, :destroy, :show]
+  before_filter :require_ownership, :only => [:edit, :update, :destroy]
+  
   # GET /topics/1/replies
   # GET /topics/1/replies.xml
   def index
@@ -81,8 +84,6 @@ class RepliesController < ApplicationController
   # DELETE /topics/1/replies/1
   # DELETE /topics/1/replies/1.xml
   def destroy
-    @topic = Topic.find(params[:topic_id])
-    @reply = @topic.replies.find(params[:id])
     @reply.destroy
 
     respond_to do |format|
@@ -90,4 +91,19 @@ class RepliesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+    def find_reply
+      @topic = Topic.find(params[:topic_id])
+      @reply = @topic.replies.find(params[:id])
+    end
+
+    def require_ownership
+      unless @reply.author == current_user
+        flash[:warning] = "You are not the owner of this reply."
+        redirect_to(@topic)
+      end
+    end
+
 end

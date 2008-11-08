@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+
+  before_filter :find_topic,        :only => [:edit, :update, :destroy, :show]
+  before_filter :require_ownership, :only => [:edit, :update, :destroy]  
+
   # GET /topics
   # GET /topics.xml
   def index
@@ -13,8 +17,6 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.xml
   def show
-    @topic = Topic.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @topic }
@@ -34,7 +36,6 @@ class TopicsController < ApplicationController
 
   # GET /topics/1/edit
   def edit
-    @topic = Topic.find(params[:id])
   end
 
   # POST /topics
@@ -45,7 +46,7 @@ class TopicsController < ApplicationController
 
     respond_to do |format|
       if @topic.save
-        flash[:notice] = 'Topic was successfully created.'
+        flash[:notice] = "Topic was successfully created."
         format.html { redirect_to(@topic) }
         format.xml  { render :xml => @topic, :status => :created, :location => @topic }
       else
@@ -58,11 +59,9 @@ class TopicsController < ApplicationController
   # PUT /topics/1
   # PUT /topics/1.xml
   def update
-    @topic = Topic.find(params[:id])
-
     respond_to do |format|
       if @topic.update_attributes(params[:topic])
-        flash[:notice] = 'Topic was successfully updated.'
+        flash[:notice] = "Topic was successfully updated."
         format.html { redirect_to(@topic) }
         format.xml  { head :ok }
       else
@@ -75,7 +74,6 @@ class TopicsController < ApplicationController
   # DELETE /topics/1
   # DELETE /topics/1.xml
   def destroy
-    @topic = Topic.find(params[:id])
     @topic.destroy
 
     respond_to do |format|
@@ -83,4 +81,18 @@ class TopicsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+
+    def find_topic
+      @topic = Topic.find(params[:id])
+    end
+
+    def require_ownership
+      unless @topic.author == current_user
+        flash[:warning] = "You are not the owner of this topic."
+        redirect_to(@topic)
+      end
+    end
+
 end

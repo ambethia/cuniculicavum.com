@@ -144,8 +144,8 @@ h1 a:focus, h1 a:hover, h1 a:active {
   margin: 0.5em;
 }
 
-.body {
-  margin: 0 0.5em;
+.topic .body {
+  margin: 0.5em;
 }
 
 /* Replies----------------------------------------------------------------- */
@@ -158,6 +158,8 @@ h1 a:focus, h1 a:hover, h1 a:active {
 
 .reply .body {
   padding: 0.25em;
+  border: none;
+  background: transparent;
 }
 
 .reply .body p {
@@ -252,6 +254,7 @@ h1 a:focus, h1 a:hover, h1 a:active {
 #flash {
   text-align: center;
   line-height: 1.5em;
+  background-color: #CCC;
 }
 
 #flash.notice {
@@ -259,7 +262,7 @@ h1 a:focus, h1 a:hover, h1 a:active {
   background-color: #DED;
 }
 
-#flash.error {
+#flash.warning {
   color: #900;
   background-color: #ECC;
 }

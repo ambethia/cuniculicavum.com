@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
+  skip_before_filter :authenticate, :only => [:create, :new]
 
   def show
     redirect_to login_path
