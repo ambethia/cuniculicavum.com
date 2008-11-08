@@ -28,6 +28,5 @@ namespace :deploy do
   end
 end
 
-before "deploy:migrate", "deploy:custom_symlinks"
 after  "deploy:symlink", "deploy:custom_symlinks"
 after  "deploy",         "deploy:cleanup"
