@@ -1,19 +1,23 @@
-<% form_for(:user, @user, current_user_path, :html => {:method => :put, :id => "edit_user"}) do |f| %>
-  <%= f.error_messages %>
+<div class="section">
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :time_zone %><br />
-    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+  <% form_for(:user, @user, current_user_path, :html => {:method => :put, :id => "edit_user"}) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :time_zone %><br />
+      <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+    </p>
+    <p>
+      <%= f.submit "Update" %>
+    </p>
+  <% end %>
+
+</div>

@@ -1,13 +1,17 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-  </tr>
+<div class="section">
 
-<% for user in @users %>
-  <tr>
-    <td><%=h user.name %></td>
-    <td><%=h user.email %></td>
-  </tr>
-<% end %>
-</table>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+
+  <% for user in @users %>
+    <tr>
+      <td><%=h user.name %></td>
+      <td><%=h user.email %></td>
+    </tr>
+  <% end %>
+  </table>
+
+</div>

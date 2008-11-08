@@ -1,3 +1,11 @@
-<% form_tag session_path do %>
-  <label for="openid_url">Your OpenID:</label> <%= text_field_tag "openid_url" %> <%= submit_tag "Sign In" %>
-<% end %>
+<div class="section">
+
+  <div id="new-session">
+    <% form_tag session_path do %>
+      <label for="openid_url">OpenID:</label> <%= text_field_tag "openid_url" %> <%= submit_tag "Sign In" %>
+    <% end %>
+  </div>
+
+  <script type="text/javascript" id="__openidselector" src="https://www.idselector.com/selector/30fee8db4c5ef346b039606ef0f406ff6b851b84" charset="utf-8"></script>
+
+</div>

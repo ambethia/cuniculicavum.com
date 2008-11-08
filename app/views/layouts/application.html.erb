@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Cuniculi Cavum [at MOGRIFY]</title>
+  <title>Cuniculi Cavum</title>
 
   <%= stylesheet_link_tag "screen" %>
 
@@ -12,7 +12,7 @@
 
 <body>
 
-<h1><%= link_to "Cuniculi Cavum <span class=\"alt\">of</span> ...", root_path %></h1>
+<h1><%= link_to "Cuniculi Cavum <span class=\"alt\">of</span> The Forgotten Coast", root_path %></h1>
 
 <%= render_flash %>
 
@@ -23,10 +23,10 @@
   <%- if logged_in? -%>
     <li><%= link_to h(current_user.name), current_user_path %></li>
     <li><%= link_to "Log Out", logout_path %></li>
+    <li id="new_topic_link"><%= link_to "New Topic", new_topic_path %></li>
   <%- else -%>
     <li><%= link_to "Log In / Register", login_path %></li>
   <%- end -%>
-    <li><%= link_to "New Topic", new_topic_path %></li>
   </ul>
 </div>
 

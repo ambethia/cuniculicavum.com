@@ -1,10 +1,11 @@
-<% form_for([@topic, @reply]) do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<div class="section">
+
+  <h2>Reply to &#8220;<%= link_to h(@topic.subject), @topic %>&#8221; by <%= link_to h(@topic.author.name), @topic.author %></h2>
+
+  <% form_for([@topic, @reply]) do |f| %>
+    <%= f.error_messages %>
+    <p><%= f.text_area :body %></p>
+    <p><%= f.submit "Reply" %> <%= link_to "Cancel", @topic %></p>
+  <% end %>
+
+</div>
