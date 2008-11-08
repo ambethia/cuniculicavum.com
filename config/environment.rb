@@ -50,7 +50,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_mogrify_session',
+    :session_key => '_cuniculi_cavum_session',
     :secret      => 'e1366b1263d6ca152809eac237149bda219fe737fdc4ba0c8eb4eff604173d3c0581dc06c441fb61f9bfc8d5e5bd56662d164188a5b3f00bb332193da2f7326d'
   }
 
@@ -66,4 +66,5 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+  config.active_record.observers = :post
 end

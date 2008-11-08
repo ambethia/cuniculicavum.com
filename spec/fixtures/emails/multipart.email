@@ -1,0 +1,23 @@
+Date: Fri, 7 Nov 2008 22:21:42 -0500
+From: jasper@example.com
+To: Cuniculi Cavum <topic-1@example.com>
+Subject: [Cuniculi Cavum] testing
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary=mimepart_491505c6e7f34_fcc1ae13ce3c
+
+
+--mimepart_491505c6e7f34_fcc1ae13ce3c
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: Quoted-printable
+Content-Disposition: inline
+
+<p>The quick brown fox jumps over the lazy dog</p>
+
+--mimepart_491505c6e7f34_fcc1ae13ce3c
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: Quoted-printable
+Content-Disposition: inline
+
+The quick brown fox jumps over the lazy dog
+
+--mimepart_491505c6e7f34_fcc1ae13ce3c--

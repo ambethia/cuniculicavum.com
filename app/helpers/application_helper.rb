@@ -7,4 +7,9 @@ module ApplicationHelper
     end.join
   end
 
+  def post_url(post)
+    post = post.respond_to?(:topic) ? post.topic : post
+    topic_url(post, :only_path => false)
+  end
+
 end
