@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_filter :require_activation, :only => [:edit, :update]
+  
   # GET /users
   # GET /users.xml
   def index
@@ -33,8 +35,15 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
-        format.html { redirect_to(@user) }
+        format.html do
+          if @user.activated?
+            flash[:notice] = "User was successfully updated."
+            redirect_to(@user)
+          else
+            flash[:message] = "Notify the guild leader that your account needs to be activated."
+            redirect_to root_path
+          end
+        end
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -54,4 +63,5 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

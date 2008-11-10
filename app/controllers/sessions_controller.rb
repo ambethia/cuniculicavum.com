@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
-  skip_before_filter :authenticate, :only => [:create, :new]
+  skip_before_filter :require_authentication
+  skip_before_filter :require_activation
 
   def show
     redirect_to login_path
@@ -31,6 +32,6 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     flash[:notice] = "You have been logged out."
-    redirect_to topics_path
+    redirect_to root_path
   end
 end

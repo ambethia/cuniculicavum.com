@@ -4,10 +4,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :require_authentication, :except => :splash
+  before_filter :require_activation,     :except => :splash
+
   before_filter :set_time_zone
-  before_filter :authenticate
 
   helper_method :logged_in?, :current_user
+
+  # GET /
+  def splash
+    render :template => "layouts/splash"
+  end
 
   protected
 
@@ -28,9 +35,19 @@ class ApplicationController < ActionController::Base
       Time.zone = current_user.time_zone if logged_in?
     end
 
-    def authenticate
+    def require_activation
+      unless logged_in? && current_user.activated?
+        flash[:warning] = "Notify the guild leader that your account needs to be activated."
+        redirect_to root_path
+        false
+      else
+        true
+      end
+    end
+    
+    def require_authentication
       unless logged_in?
-        flash[:warning] = "You have not been authorized to perform that action."
+        flash[:warning] = "You are not logged in."
         redirect_to login_path
         false
       else

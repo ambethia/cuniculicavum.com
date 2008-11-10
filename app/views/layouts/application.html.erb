@@ -4,10 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Cuniculi Cavum</title>
+  <title>Descensus in Cuniculi Cavum</title>
 
   <%= stylesheet_link_tag "screen" %>
-
 </head>
 
 <body>
@@ -23,11 +22,13 @@
   <%- if logged_in? -%>
     <li><%= link_to h(current_user.name), current_user_path %></li>
     <li><%= link_to "Log Out", logout_path %></li>
-    <li class="new_topic"><%= link_to "New Topic", new_topic_path %></li>
+    <li class="new_topic"><%= link_to "New Post", new_topic_path %></li>
+    <li class="topics"><%= link_to "Index", topics_path %></li>
   <%- else -%>
     <li><%= link_to "Log In / Register", login_path %></li>
   <%- end -%>
     <li><a href="http://ambethia.lighthouseapp.com/projects/19474-cuniculi-cavum/overview" title="Issue Tracking">Bugs</a></li>
+    <li><a href="http://github.com/ambethia/cuniculicavum.com" title="Source Code">Source</a></li>
   </ul>
 </div>
 

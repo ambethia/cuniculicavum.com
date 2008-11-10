@@ -15,5 +15,5 @@ ActionController::Routing::Routes.draw do |map|
     map.user  "/users/:id", :action   => "show"
   end
 
-  map.root :controller => "topics"
+  map.root :controller => "application", :action => "splash"
 end
