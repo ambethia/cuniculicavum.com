@@ -26,6 +26,10 @@ li, dd, blockquote {
   margin-left: 1em;
 }
 
+a {
+  padding: 0 0.2em;
+}
+
 a:link, a:visited {
   text-decoration: none;
   background-color: #ddd;
@@ -35,6 +39,13 @@ a:link, a:visited {
 a:focus, a:hover, a:active {
   background-color: #900;
   color: #FFF;  
+}
+
+a[href^="http:"] {
+  background-image: url(../images/external_link.gif);
+  background-repeat: no-repeat;
+  background-position: 0.2em 52%;
+  padding-left: 18px;
 }
 
 /* Common ----------------------------------------------------------------- */
@@ -80,7 +91,7 @@ h2 {
 }
 
 h1 a:link, h1 a:visited {
-  background: transparent;
+  background-color: transparent;
   color: #fff;
 }
 
@@ -135,7 +146,7 @@ h1 a:focus, h1 a:hover, h1 a:active {
   font-size: 0.8em;
   margin-top: 0;
   color: #999;
-  background: #ddd;
+  background-color: #ddd;
   border-bottom: 1px dotted #ccc;
 }
 
@@ -151,7 +162,7 @@ h1 a:focus, h1 a:hover, h1 a:active {
 /* Replies----------------------------------------------------------------- */
 
 .reply {
-  background: #fafafa;
+  background-color: #fafafa;
   font-size: 0.9em;
   margin: 0.8em 0.5em;
 }
@@ -159,7 +170,7 @@ h1 a:focus, h1 a:hover, h1 a:active {
 .reply .body {
   padding: 0.25em;
   border: none;
-  background: transparent;
+  background-color: transparent;
 }
 
 .reply .body p {
@@ -167,18 +178,19 @@ h1 a:focus, h1 a:hover, h1 a:active {
 }
 
 .reply .authorship {
-  background: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 /* Navigation ------------------------------------------------------------- */
 
 #navigation {
-  background: #333;
+  background-color: #333;
 }
 
 #navigation ul {
   margin: 0;
   height: 2em;
+  padding-right: 0.5em;
 }
 
 #navigation li {
@@ -192,15 +204,32 @@ h1 a:focus, h1 a:hover, h1 a:active {
 #navigation a:link,
 #navigation a:visited {
   color: #ccc;
-  background: #444;
+  background-color: #444;
+}
+
+#navigation li.new_topic a:link,
+#navigation li.new_topic a:visited {
+  background-color: #999;
+  color: #333;
 }
 
 #navigation a:focus,
 #navigation a:hover,
-#navigation a:active {
+#navigation a:active,
+#navigation li.new_topic a:focus,
+#navigation li.new_topic a:hover,
+#navigation li.new_topic a:active {
   color: #333;
-  background: #fff;
+  background-color: #fff;
 }
+
+#navigation li.new_topic {
+  float: right;
+  
+}
+
+
+
 
 /* Footer ----------------------------------------------------------------- */
 
@@ -223,7 +252,10 @@ h1 a:focus, h1 a:hover, h1 a:active {
 
 #copyright a {
   color: #ddf;
-  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  padding-left: 2px;
+  padding-bottom: 0;
   font-weight: bold;
   font-variant:small-caps;
   text-transform:lowercase;

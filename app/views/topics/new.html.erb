@@ -5,14 +5,12 @@
   <% form_for(@topic) do |f| %>
     <%= f.error_messages %>
 
-    <p>
-      <%= f.label :subject %><br />
-      <%= f.text_field :subject %>
-    </p>
-    <p>
-      <%= f.label :body %><br />
-      <%= f.text_area :body %>
-    </p>
+    <p><%= f.text_field :subject %> <%= f.label :subject, "(Subject)", :class => "note" %></p>
+
+    <p><%= f.text_area :body %></p>
+
+    <p class="note">You can use <a href="http://en.wikipedia.org/wiki/Markdown" title="Markdown @ Wikipedia">Markdown</a> to format your post.</p>
+
     <p>
       <%= f.submit "Create" %> <%= link_to "Cancel", topics_path %>
     </p>

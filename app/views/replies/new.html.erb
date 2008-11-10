@@ -5,6 +5,7 @@
   <% form_for([@topic, @reply]) do |f| %>
     <%= f.error_messages %>
     <p><%= f.text_area :body %></p>
+    <p class="note">You can use <a href="http://en.wikipedia.org/wiki/Markdown" title="Markdown @ Wikipedia">Markdown</a> to format your reply.</p>
     <p><%= f.submit "Reply" %> <%= link_to "Cancel", @topic %></p>
   <% end %>
 
