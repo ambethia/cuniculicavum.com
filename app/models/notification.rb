@@ -1,12 +1,10 @@
 class Notification < ActionMailer::Base
   helper :application
 
-  def post(post, sent_at = Time.now)
-    subject    "[Cuniculi Cavum] #{post.subject}"
-    recipients User.notifiable_by_email.map { |u| "#{u.name} <#{u.email}>" }
-    from       "#{post.author.name} <#{post.author.email}>"
-    reply_to   "Cuniculi Cavum <#{Notification.topic_reply_to(post)}>"
-    sent_on    sent_at
+  def post(post, user)
+    subject    post.mail_subject
+    recipients "#{user.name} <#{user.email}>"
+    from       "#{post.author.name} <#{Notification.topic_reply_to(post)}>"
     body       :post => post
   end
 

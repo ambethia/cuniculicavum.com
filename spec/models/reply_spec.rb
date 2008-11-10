@@ -7,10 +7,10 @@ describe Reply do
     @reply = stub_model(Reply, :topic => @topic)
   end
 
-  describe "#subject" do
+  describe "#mail_subject" do
 
     it "should be regarding the topic's subject" do
-      @reply.subject.should == "Re: Subject"
+      @reply.mail_subject.should == "Re: [Cuniculi Cavum] Subject"
     end
 
   end
