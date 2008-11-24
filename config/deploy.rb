@@ -14,7 +14,7 @@ set :run_method, :run
 
 namespace :deploy do
   task :custom_symlinks do
-    run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
   end
   
   desc "Restart Passenger"
