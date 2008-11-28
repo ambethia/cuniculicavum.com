@@ -1,4 +1,7 @@
+<hr title="Reply above this line">
+Posted by <%=h @post.author.name %>.
+
 <%= markdown h(@post.body) %>
 
-<hr/>
+<hr>
 <%= link_to "View this post online", post_url(@post) %>

@@ -23,14 +23,30 @@ class Notification < ActionMailer::Base
   end
 
   def reply_body(mail)
+    pattern = /^.*Reply above this line.*$/
+    message = full_body(mail)
+    match   = pattern.match(message)
+    
+    clean_reply(match ? match.pre_match.strip : message)
+  end
+  
+  def full_body(mail)
     if mail.multipart?
       plain = mail.parts.select { |part| part.content_type == "text/plain" }
       body  = plain.first.body || mail.parts.first.body
-
       body.strip
     else
       mail.body.strip
     end
+  end
+
+  # Remove last lines like:
+  #   On Nov 27, 2008, at 11:06 PM, Jason L Perry wrote:
+  def clean_reply(text)
+    pattern = /On .* wrote/
+    lines = text.split("\n")
+    lines.pop if pattern.match(lines.last)
+    lines.join("\n").strip
   end
 
   # "topic-123@cuniculicavum.com" to 123

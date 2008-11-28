@@ -53,6 +53,15 @@ describe Notification do
       Notification.receive(File.open(fixture_path + "/emails/multipart.email").read)
     end
 
+    it "should not include the quoted text in a reply" do
+      Reply.should_receive(:create).with(
+        :topic  => @topic,
+        :author => @user,
+        :body   => "I am replying."
+      )
+      Notification.receive(File.open(fixture_path + "/emails/reply.email").read)      
+    end
+
   end
 
 end
