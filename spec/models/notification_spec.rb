@@ -7,7 +7,7 @@ describe Notification do
     it "should find the topic id from the address" do
       Notification.topic_key("topic-123@example.com").should == 123
     end
-    
+
     it "should not find an id for other addresses" do
       Notification.topic_key("postmaster@example.com").should be_nil
     end
@@ -20,7 +20,7 @@ describe Notification do
       @email = File.open(fixture_path + "/emails/simple.email").read
       @topic = stub_model(Topic)
       @user  = stub_model(User)
-      
+
       User.stub!(:find_by_email).and_return(@user)
       Topic.stub!(:find_by_id).and_return(@topic)
     end
@@ -59,7 +59,7 @@ describe Notification do
         :author => @user,
         :body   => "I am replying."
       )
-      Notification.receive(File.open(fixture_path + "/emails/reply.email").read)      
+      Notification.receive(File.open(fixture_path + "/emails/reply.email").read)
     end
 
   end

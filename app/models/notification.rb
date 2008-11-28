@@ -26,10 +26,10 @@ class Notification < ActionMailer::Base
     pattern = /^.*Reply above this line.*$/
     message = full_body(mail)
     match   = pattern.match(message)
-    
+
     clean_reply(match ? match.pre_match.strip : message)
   end
-  
+
   def full_body(mail)
     if mail.multipart?
       plain = mail.parts.select { |part| part.content_type == "text/plain" }
@@ -54,7 +54,7 @@ class Notification < ActionMailer::Base
     key = address.scan(/topic-(\d+)@.*/).flatten.first
     key ? key.to_i : nil
   end
-  
+
   def self.topic_reply_to(post)
     topic = post.respond_to?(:topic) ? post.topic : post
     "topic-#{topic.id}@#{ActionMailer::Base.default_url_options[:host]}"
