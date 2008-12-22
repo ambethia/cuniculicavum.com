@@ -43,7 +43,7 @@ class Notification < ActionMailer::Base
   # Remove last lines like:
   #   On Nov 27, 2008, at 11:06 PM, Jason L Perry wrote:
   def clean_reply(text)
-    pattern = /On .* wrote/
+    pattern = /on.*wrote/i
     lines = text.split("\n")
     lines.pop if pattern.match(lines.last)
     lines.join("\n").strip
