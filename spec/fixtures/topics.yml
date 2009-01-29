@@ -1,7 +1,13 @@
 one_week:
   author: jasper
   subject: One Week Left...
-  body: How're we looking in levels?
+  body: |
+    How're we looking in levels?
+    
+    Another paragraph.
+    Then a list:
+    
+    * http://tekkub.net/tg
  
 lorem_ipsum:
   author: dedguy
