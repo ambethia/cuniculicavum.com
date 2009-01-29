@@ -1,7 +1,7 @@
 <div class="reply">
 
   <div class="authorship">
-    posted by <%= link_to h(reply.author.name), reply.author %></a>
+    reply by <%= link_to h(reply.author.name), reply.author %></a>
     <%= time_ago_in_words(reply.created_at) %> ago
   </div>
 

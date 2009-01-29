@@ -1,3 +1,15 @@
-<%= render :partial => "topic", :collection => @topics %>
+<%- for topic in @topics -%>
+<div class="topic section index">
+  <div class="authorship">
+    posted by <%= link_to h(topic.author.name), topic.author %></a>
+    <%= time_ago_in_words(topic.created_at) %> ago
+    (<%= topic.replies.count %> <%= topic.replies.count == 1 ? "reply" : "replies" %>)
+  </div>
+
+  <h2><%= link_to h(topic.subject), topic %></h2>
+
+
+</div>
+<%- end -%>
 
 <%= will_paginate(@topics) %>
