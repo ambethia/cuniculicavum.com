@@ -4,6 +4,7 @@ jasper:
   identity_url: http://ambethia.com/
   time_zone: Eastern Time (US & Canada)
   activated: true
+  officer: true
  
 dedguy:
   name: James B Seaman

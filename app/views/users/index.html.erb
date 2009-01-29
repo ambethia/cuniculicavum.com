@@ -4,12 +4,14 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th></th>
     </tr>
 
   <% for user in @users %>
     <tr>
       <td><%=h user.name %></td>
       <td><%=h user.email %></td>
+      <td><%= link_to "activate", activate_user_path(user), :method => :put unless user.activated? %></td>
     </tr>
   <% end %>
   </table>

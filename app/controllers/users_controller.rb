@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   skip_before_filter :require_activation, :only => [:edit, :update]
   
+  before_filter :require_officer, :only => [:activate]
+  
   # GET /users
   # GET /users.xml
   def index
@@ -61,6 +63,23 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def activate
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attribute(:activated, true)
+        format.html do
+          flash[:notice] = "User was successfully updated."
+          redirect_to(@user)
+        end
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

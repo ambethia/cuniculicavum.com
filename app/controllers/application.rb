@@ -54,5 +54,15 @@ class ApplicationController < ActionController::Base
         true
       end
     end
+    
+    def require_officer
+      unless logged_in? && current_user.officer?
+        flash[:warning] = "You are not an officer."
+        redirect_to root_path
+        false
+      else
+        true
+      end
+    end
 
 end

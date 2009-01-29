@@ -13,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
 
     map.users "/users",     :action   => "index"
     map.user  "/users/:id", :action   => "show"
+
+    map.activate_user "/users/:id/activate", :action => "activate", :conditions => { :method => :put }
   end
 
   map.root :controller => "application", :action => "splash"

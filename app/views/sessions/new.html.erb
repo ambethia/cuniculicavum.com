@@ -4,6 +4,7 @@
     <% form_tag session_path do %>
       <label for="openid_url">OpenID:</label> <%= text_field_tag "openid_url" %> <%= submit_tag "Sign In" %>
     <% end %>
+    <p class="note"><strong>New Users:</strong> To register, sign in using your OpenID.<br/>If you aren't sure what OpenID is, don't worry, you probably <a href="http://openid.net/get/" title="How do I get an OpenID?">already have one</a>.</p>
   </div>
 
   <script type="text/javascript" id="__openidselector" src="https://www.idselector.com/selector/30fee8db4c5ef346b039606ef0f406ff6b851b84" charset="utf-8"></script>
