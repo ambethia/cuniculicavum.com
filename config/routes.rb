@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :events
   map.resources :topics, :has_many => :replies
 
   map.resource :session

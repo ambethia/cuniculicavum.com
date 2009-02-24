@@ -167,6 +167,37 @@ h1 a:focus, h1 a:hover, h1 a:active {
   line-height: 2.4em;
 }
 
+/* Events ----------------------------------------------------------------- */
+
+.event.index .details {
+  font-size: 0.8em;
+  margin-top: 0;
+  color: #ccc;
+  background-color: transparent;
+  border-bottom: none;
+  padding: 0 0.5em;
+  float: right;
+  line-height: 2.4em;
+}
+
+.event .time {
+  padding: 0 0.7em;
+  line-height: 1.5em;
+  font-size: 0.8em;
+  margin-top: 0;
+  color: #999;
+  background-color: #ddd;
+  border-bottom: 1px dotted #ccc;
+}
+
+.event .navigation {
+  text-align: right;
+  margin: 0.5em;
+}
+
+.event .body {
+  margin: 0.5em;
+}
 
 /* Replies----------------------------------------------------------------- */
 
@@ -236,6 +267,8 @@ h1 a:focus, h1 a:hover, h1 a:active {
   background-color: #fff;
 }
 
+#navigation li.events,
+#navigation li.new_event,
 #navigation li.topics,
 #navigation li.new_topic {
   float: right;

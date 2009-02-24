@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090129025840) do
+ActiveRecord::Schema.define(:version => 20090210044509) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "begins_at"
+    t.datetime "ends_at"
+    t.integer  "raid_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -24,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20090129025840) do
     t.integer "timestamp",  :null => false
     t.string  "server_url"
     t.string  "salt",       :null => false
+  end
+
+  create_table "raids", :force => true do |t|
+    t.string   "title"
+    t.integer  "roster_size"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "replies", :force => true do |t|

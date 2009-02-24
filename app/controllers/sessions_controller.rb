@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
           @user.time_zone = ActiveSupport::TimeZone::MAPPING.index(registration["timezone"])
           @user.save(false)
           self.current_user = @user
+          flash[:notice] = "Notify the guild leader that your account needs to be activated."
           redirect_to current_user_path
         else
           self.current_user = @user

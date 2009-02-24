@@ -1,0 +1,14 @@
+nax10:
+  title: Naxxramas
+  roster_size: 10
+  icon: naxxramas
+
+nax25:
+  title: Naxxramas (Heroic)
+  roster_size: 25
+  icon: naxxramas
+
+os10:
+  title: Obsidium Sanctum
+  roster_size: 10
+  icon: obsidian

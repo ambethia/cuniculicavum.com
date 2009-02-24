@@ -1,0 +1,39 @@
+<div class="section">
+
+<h2>Edit Event</h2>
+
+<% form_for(@event) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :raid_id, "Raid" %><br />
+    <%= f.collection_select(:raid_id, Raid.all, :id, :title, {:include_blank => true})
+     %>
+  </p>
+
+  <p>
+    <%= f.label :title %> <span class="note">(Optional)</span><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :begins_at %><br />
+    <%= f.datetime_select :ends_at %>
+  </p
+
+  <p>
+    <%= f.label :begins_at %><br />
+    <%= f.datetime_select :ends_at %>
+  </p
+
+  <p>
+    <%= f.submit "Update" %> <%= link_to "Cancel", event_path(@event) %>
+  </p>
+<% end %>
+
+</div>

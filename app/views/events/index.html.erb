@@ -1,0 +1,11 @@
+<%- for event in @events -%>
+<div class="event section index">
+  <div class="details">
+    <%= event.description %>
+    <%= event.begins_at.strftime("%a, %b %d @ %I:%m %p") %>
+    <span class="note">(<%= distance_of_time_in_words_to_now(event.begins_at) %> <%= event.begins_at > Time.now ? "from now" : "ago" %>)</span>
+  </div>
+
+  <h2><%= link_to h(event.title), event %></h2>
+</div>
+<%- end -%>

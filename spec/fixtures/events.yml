@@ -1,0 +1,13 @@
+wed_os:
+  title:
+  description: Maybe we'll knock out a couple wings of naxx after
+  begins_at: 2009-02-11 18:30:00
+  ends_at: 2009-02-11 22:00:00
+  raid: os10
+
+fri_naxx:
+  title: Naxx 10 
+  description: Going straight for DK and Contstuct wings
+  begins_at: 2009-02-13 20:00:00
+  ends_at: 2009-02-14 01:00:00
+  raid: naxx10
