@@ -1,10 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :characters
-
-  map.resources :characters
-
-  map.resources :events
   map.resources :topics, :has_many => :replies
+  map.resources :events, :has_many => :registrations
+  map.resources :characters
 
   map.resource :session
   map.logout   "/logout", :controller => "sessions", :action => "destroy"

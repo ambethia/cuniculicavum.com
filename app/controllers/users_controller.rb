@@ -40,11 +40,10 @@ class UsersController < ApplicationController
         format.html do
           if @user.activated?
             flash[:notice] = "User was successfully updated."
-            redirect_to(@user)
           else
             flash[:message] = "Notify the guild leader that your account needs to be activated."
-            redirect_to root_path
           end
+          redirect_to current_user_path
         end
         format.xml  { head :ok }
       else

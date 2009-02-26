@@ -6,7 +6,9 @@
     <p>
       <%= f.label :name %><br />
       <%= f.text_field :name %><br/>
-      <span class="note">This should be your real name, add your characters down below</span>
+      <%- if @user.name.blank? -%>
+      <span class="note">This should be your real name, you'll be able to add your character names next.</span>
+      <%- end -%>
     </p>
     <p>
       <%= f.label :email %><br />
@@ -17,18 +19,16 @@
       <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
     </p>
 
+    <%- unless @user.name.blank? -%>
     <p>Characters</p>
-
     <ul>
       <% for character in @user.characters %>
       <li><%= armory_link(character) %> (<%= link_to "Delete", character, :confirm => 'Are you sure?', :method => :delete %>)</li>
       <% end %>
+      <li><%= link_to "Add Character", new_character_path %></li>
     </ul>
-    
-    <p>
-      <%= link_to "Add Character", new_character_path %>
-    </p>
-    
+    <%- end -%>
+
     <p>
       <%= f.submit "Update" %> <%= link_to "Cancel", @user %>
     </p>

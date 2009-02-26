@@ -1,4 +1,5 @@
 class CharactersController < ApplicationController
+  skip_before_filter :require_activation, :only => [:new, :create, :edit, :update]
   before_filter :find_character,    :only => [:edit, :update, :destroy, :show]
   before_filter :require_ownership, :only => [:edit, :update, :destroy]  
   

@@ -1,0 +1,19 @@
+<div class="section">
+  <h2>Register for &ldquo;<%= @event.title %>&rdquo;</h2>
+
+<% form_for([@event, @registration]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :status %><br />
+    <%= f.select :status, Registration.statuses.map { |s| [s.titleize, s] } %>
+  </p>
+  <p>
+    <%= f.label :character_id %><br />
+    <%= f.select :character_id, current_user.characters.map { |c| [c.name, c.id] } %>
+  </p>
+  <p>
+    <%= f.submit "Register" %> <%= link_to "Cancel", @event %>
+  </p>
+<% end %>
+</div>

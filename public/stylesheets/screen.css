@@ -66,6 +66,10 @@ h2 a[href^="http:"] {
   margin: 0.25em;
 }
 
+th {
+  text-align: left;
+}
+
 /* Header ----------------------------------------------------------------- */
 
 h1 {
@@ -197,6 +201,21 @@ h1 a:focus, h1 a:hover, h1 a:active {
 .event .body {
   margin: 0.5em;
 }
+
+.event td.attending, td.attending a {
+  font-weight: bold;
+  color: #009900 !important;
+}
+
+.event td.not_attending, td.not_attending a {
+  font-weight: bold;
+  color: #990000 !important;
+}
+
+.event td.attending a:hover, td.not_attending a:hover {
+  background-color: #999;
+}
+
 
 /* Replies----------------------------------------------------------------- */
 
@@ -373,7 +392,8 @@ a.mage         { color:#69ccf0 !important; }
 a.warlock      { color:#9482c9 !important; }
 a.priest       { color:#ffffff !important; }
 
-a.hunter, a.druid, a.warrior, a.shaman, a.rogue,
-a.death_knight, a.paladin, a.mage, a.warlock, a.priest {
-  background-color: transparent !important;
+a.hunter:hover, a.druid:hover, a.warrior:hover, a.shaman:hover,
+a.rogue:hover, a.death_knight:hover, a.paladin:hover, a.mage:hover,
+a.warlock:hover, a.priest:hover {
+  background-color: #ccc !important;
 }

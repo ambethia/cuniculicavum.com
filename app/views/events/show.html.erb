@@ -9,9 +9,32 @@
 
   <div class="body">
     <%= textilize auto_link(h(@event.description)) %>
+
+    <h3>Registrations</h3>
+
+    <table>
+      <tr>
+        <th>Player</th>
+        <th>Status</th>
+      </tr>
+    <% unless @event.registrations.empty? %>
+      <% for registration in @event.registrations.all(:include => :character, :order => "status ASC, characters.name ASC") %>
+      <tr>
+        <td><%= armory_link(registration.character) %></td>
+        <td class="<%= registration.status %>"><%= link_to_if (current_user.officer? || registration.character.user == current_user), registration.status.titleize, edit_event_registration_path(@event, registration) %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      
+    <% end %>
+      
+    </table>
+
   </div>
 
+
   <p class="navigation">
+    <%= link_to "Register for this Event", new_event_registration_path(@event) %>
     <%= link_to "Edit", edit_event_path(@event) if current_user.officer? %>
   </p>
 
