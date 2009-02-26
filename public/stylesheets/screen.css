@@ -48,6 +48,10 @@ a[href^="http:"] {
   padding-left: 18px;
 }
 
+h2 a[href^="http:"] {
+  padding-left: 22px;
+}
+
 /* Common ----------------------------------------------------------------- */
 
 .section {
@@ -119,6 +123,11 @@ h1 a:focus, h1 a:hover, h1 a:active {
   color: #fff;  
 }
 
+.section .navigation {
+  text-align: right;
+  margin: 0.5em;
+}
+
 /* Topics ----------------------------------------------------------------- */
 
 .topic.section h2 {
@@ -147,11 +156,6 @@ h1 a:focus, h1 a:hover, h1 a:active {
   color: #999;
   background-color: #ddd;
   border-bottom: 1px dotted #ccc;
-}
-
-.topic .navigation {
-  text-align: right;
-  margin: 0.5em;
 }
 
 .topic .body {
@@ -188,11 +192,6 @@ h1 a:focus, h1 a:hover, h1 a:active {
   color: #999;
   background-color: #ddd;
   border-bottom: 1px dotted #ccc;
-}
-
-.event .navigation {
-  text-align: right;
-  margin: 0.5em;
 }
 
 .event .body {
@@ -359,4 +358,22 @@ form textarea {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   width: 100%;
   height: 12em;
+}
+
+/* Classes ---------------------------------------------------------------- */
+
+a.hunter       { color:#abd473 !important; }
+a.druid        { color:#ff7c0a !important; }
+a.warrior      { color:#c79c6e !important; }
+a.shaman       { color:#2459ff !important; }
+a.rogue        { color:#fff569 !important; }
+a.death_knight { color:#c41f3b !important; }
+a.paladin      { color:#f58cba !important; }
+a.mage         { color:#69ccf0 !important; }
+a.warlock      { color:#9482c9 !important; }
+a.priest       { color:#ffffff !important; }
+
+a.hunter, a.druid, a.warrior, a.shaman, a.rogue,
+a.death_knight, a.paladin, a.mage, a.warlock, a.priest {
+  background-color: transparent !important;
 }

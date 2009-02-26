@@ -12,4 +12,8 @@ module ApplicationHelper
     topic_url(post, :only_path => false)
   end
 
+  def armory_link(character)
+    link_to character.name, character.armory_url, :class => character.character_class
+  end
+
 end

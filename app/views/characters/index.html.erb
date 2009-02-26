@@ -1,0 +1,16 @@
+<div class="section">
+  <h2>Characters</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+    </tr>
+
+  <% for character in @characters %>
+    <tr>
+      <td><%= link_to character.name, character, :class => character.character_class %></td>
+      <td><%=h character.user.name %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<div class="section">
+  <h2>New Character</h2>
+
+<% form_for(@character) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :character_class, "Class" %><br />
+    <%= f.select :character_class, Character.classes.map { |c| [c.titleize, c]}, :include_blank => :true %>
+  </p>
+  <p>
+    <%= f.submit "Create" %> <%= link_to 'Cancel', current_user_path %>
+  </p>
+<% end %>
+
+</div>

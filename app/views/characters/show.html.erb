@@ -1,0 +1,7 @@
+<div class="section">
+  <h2>
+    <%= armory_link(@character) %>
+    (<%= link_to @character.user.name, @character.user %>)
+    <%= link_to("Edit", edit_character_path(@character)) if current_user.officer? || current_user == @character.user %>
+  </h2>
+</div>

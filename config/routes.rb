@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :characters
+
+  map.resources :characters
+
   map.resources :events
   map.resources :topics, :has_many => :replies
 

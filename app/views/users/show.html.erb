@@ -10,4 +10,12 @@
     <%=h @user.email %>
   </p>
 
+  <p><b>Characters:</b></p>
+  
+  <ul>
+    <% for character in @user.characters %>
+    <li><%= armory_link(character) %></li>
+    <% end %>
+  </ul>
+
 </div>

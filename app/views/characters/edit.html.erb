@@ -1,0 +1,33 @@
+<div class="section">
+  <h2>Editing Character</h2>
+
+<% form_for(@character) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :character_class, "Class" %><br />
+    <%= f.select :character_class, Character.classes.map { |c| [c.titleize, c]}, :include_blank => :true %>
+  </p>
+  <% if current_user.officer? %>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.select :user_id, User.all.collect {|p| [ p.name, p.id ] } %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.submit "Update" %> <%= link_to "Cancel", @character %>
+  </p>
+<% end %>
+
+<p class="navigation">
+  <% if current_user.officer? || current_user == @character.user %>
+    <%= link_to 'Destroy', @character, :confirm => 'Are you sure?', :method => :delete %>
+  <% end %>
+</p>
+
+
+</div>
