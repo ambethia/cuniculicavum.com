@@ -9,8 +9,6 @@ role :app, "cuniculicavum.com"
 role :web, "cuniculicavum.com"
 role :db,  "cuniculicavum.com", :primary => true
 
-...
-
 ssh_options[:username] = "cuniculi"
 set :run_method, :run
 
