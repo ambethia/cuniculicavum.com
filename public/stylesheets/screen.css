@@ -392,8 +392,14 @@ a.mage         { color:#69ccf0 !important; }
 a.warlock      { color:#9482c9 !important; }
 a.priest       { color:#ffffff !important; }
 
+a.hunter, a.druid, a.warrior, a.shaman,
+a.rogue, a.death_knight, a.paladin, a.mage,
+a.warlock, a.priest {
+  background-color: #333 !important;
+}
+
 a.hunter:hover, a.druid:hover, a.warrior:hover, a.shaman:hover,
 a.rogue:hover, a.death_knight:hover, a.paladin:hover, a.mage:hover,
 a.warlock:hover, a.priest:hover {
-  background-color: #ccc !important;
+  background-color: #666 !important;
 }
