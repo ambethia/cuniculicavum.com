@@ -15,12 +15,16 @@
     <table>
       <tr>
         <th>Player</th>
+        <th>Role</th>
         <th>Status</th>
       </tr>
     <% unless @event.registrations.empty? %>
       <% for registration in @event.registrations.all(:include => :character, :order => "status ASC, characters.name ASC") %>
       <tr>
-        <td><%= armory_link(registration.character) %></td>
+        <td><%= link_to registration.character.name,
+                        registration.character,
+                        :class => registration.character.character_class %></td>
+        <td><%= registration.role %></td>
         <td class="<%= registration.status %>"><%= link_to_if (current_user.officer? || registration.character.user == current_user), registration.status.titleize, edit_event_registration_path(@event, registration) %></td>
       </tr>
       <% end %>

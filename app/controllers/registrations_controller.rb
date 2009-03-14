@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations/1
   # GET /registrations/1.xml
   def show
-    @registration = @event.registrations.find(params[:id])
+    @registration = @event.registrations.find(params[:id], :order => "created_at ASC")
 
     respond_to do |format|
       format.html # show.html.erb

@@ -18,4 +18,16 @@
     <% end %>
   </ul>
 
+  <%- if current_user.officer? -%>
+  
+  <p>
+    <b>Open ID:</b>
+    <%=h @user.identity_url %>
+  </p>
+  
+  <p>
+    <%= link_to 'Destroy', @user, :confirm => 'Are you sure?', :method => :delete %>
+  </p>
+  
+  <%- end -%>
 </div>

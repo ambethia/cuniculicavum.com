@@ -12,10 +12,16 @@ class Event < ActiveRecord::Base
   end
 
   def loot_council_url
-    characters = CGI::escape(registrations.accepted.map { |r| r.character.name }.join(" "))
-    raid_name  = raid ? CGI::escape(raid.title) : ""
+    characters = CGI::escape(
+      registrations.accepted.map {
+        |registration| registration.character.name
+      }.join(" ")
+    )
+    raid_name = raid ? CGI::escape(raid.title) : ""
     
-    "http://loot-council.appspot.com/lootcouncil?characters=#{characters}&realm=The+Forgotten+Coast&region=us&site=Wowhead&raid=#{raid_name}&difficulty=Normal"
+    return "http://loot-council.appspot.com/lootcouncil?characters="
+    + characters + "&realm=The+Forgotten+Coast&region=us&site=Wowhead&raid="
+    + raid_name + "&difficulty=Normal"
   end
 
 end

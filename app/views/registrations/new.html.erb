@@ -10,7 +10,11 @@
   </p>
   <p>
     <%= f.label :character_id %><br />
-    <%= f.select :character_id, current_user.characters.map { |c| [c.name, c.id] } %>
+    <%= f.select :character_id, available_character_options, :selected => "" %>
+  </p>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.select :role, ["DPS", "Tank", "Healer"] %>
   </p>
   <p>
     <%= f.submit "Register" %> <%= link_to "Cancel", @event %>

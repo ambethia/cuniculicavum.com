@@ -2,6 +2,7 @@
 <div class="event section index">
   <div class="details">
     <%= event.description %>
+    (<%= event.registrations.accepted.count %> of <%= event.raid.roster_size %> accepted)
     <%= event.begins_at.strftime("%a, %b %d @ %I:%m %p") %>
     <span class="note">(<%= distance_of_time_in_words_to_now(event.begins_at) %> <%= event.begins_at > Time.now ? "from now" : "ago" %>)</span>
   </div>
