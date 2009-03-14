@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_filter :require_activation, :only => [:edit, :update]
   
-  before_filter :require_officer, :only => [:activate]
+  before_filter :require_officer, :only => [:activate, :destroy]
   
   # GET /users
   # GET /users.xml
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    @user = current_user
+    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|
