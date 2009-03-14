@@ -23,7 +23,7 @@
 
 <p class="navigation">
   <% if current_user.officer? || current_user == @registration.character.user %>
-    <%= link_to 'Destroy', @registration, :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Destroy', [@registration.event, @registration], :confirm => 'Are you sure?', :method => :delete %>
   <% end %>
 </p>
 
