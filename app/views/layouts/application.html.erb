@@ -6,8 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>Descensus in Cuniculi Cavum</title>
 
-  <%= stylesheet_link_tag "screen", "datepicker" %>
-  <%= javascript_include_tag "datepicker" %>
+  <%= stylesheet_link_tag "screen" %>
 </head>
 
 <body>
@@ -25,9 +24,7 @@
     <li><%= link_to h(current_user.name), current_user_path %></li>
     <li><%= link_to "Log Out", logout_path %></li>
     <li class="new_topic"><%= link_to "New Post", new_topic_path %></li>
-    <li class="topics"><%= link_to "Posts", topics_path %></li>
-    <%- if current_user.officer? -%><li class="new_event"><%= link_to "New Event", new_event_path %></li><%- end -%>
-    <li class="events"><%= link_to "Events", events_path %></li>
+    <li class="topics"><%= link_to "Topics", topics_path %></li>
     <%- if current_user.officer? -%><li class="topics"><%= link_to "Users", users_path %></li><%- end -%>
   <%- else -%>
     <li><%= link_to "Log In / Register", login_path %></li>
@@ -43,5 +40,14 @@
 </p>
 </div>
 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7960240-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>
