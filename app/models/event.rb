@@ -19,9 +19,7 @@ class Event < ActiveRecord::Base
     )
     raid_name = raid ? CGI::escape(raid.title) : ""
     
-    return "http://loot-council.appspot.com/lootcouncil?characters="
-    + characters + "&realm=The+Forgotten+Coast&region=us&site=Wowhead&raid="
-    + raid_name + "&difficulty=Normal"
+    return "http://loot-council.appspot.com/lootcouncil?characters=#{characters}&realm=The+Forgotten+Coast&region=us&site=Wowhead&raid=#{raid_name}&difficulty=Normal"
   end
 
 end

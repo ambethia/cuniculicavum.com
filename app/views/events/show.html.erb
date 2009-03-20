@@ -3,7 +3,7 @@
   <h2><%= @event.title %></h2>
 
   <div class="time">
-    <%= @event.begins_at.strftime("<strong>%A</strong>, %b %d @ %I:%m %p") %>
+    <%= @event.begins_at.strftime("<strong>%A</strong>, %b %d @ %I:%M %p") %>
     &mdash; <%= @event.ends_at ? @event.ends_at.strftime("%I:%m %p") : "?" %>
   </div>
 
