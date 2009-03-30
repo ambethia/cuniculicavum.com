@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.xml
   def index
-    @topics = Topic.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
+    @topics = Topic.paginate :per_page => 10, :page => params[:page], :order => "updated_at DESC"
 
     respond_to do |format|
       format.html # index.html.erb
