@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090314174746) do
+ActiveRecord::Schema.define(:version => 20090402181152) do
 
   create_table "characters", :force => true do |t|
     t.integer  "user_id"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(:version => 20090314174746) do
   end
 
   create_table "open_id_authentication_nonces", :force => true do |t|
-    t.integer "timestamp",                  :null => false
+    t.integer "timestamp",  :null => false
     t.string  "server_url"
-    t.string  "salt",       :default => "", :null => false
+    t.string  "salt",       :null => false
   end
 
   create_table "raids", :force => true do |t|
@@ -84,8 +84,9 @@ ActiveRecord::Schema.define(:version => 20090314174746) do
     t.string   "identity_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "activated",    :default => false
+    t.boolean  "activated",     :default => false
     t.boolean  "officer"
+    t.boolean  "email_updates", :default => true
   end
 
 end
