@@ -3,7 +3,12 @@
   <div class="authorship">
     posted by <%= link_to h(topic.author.name), topic.author %></a>
     <%= time_ago_in_words(topic.created_at) %> ago
-    (<%= topic.replies.count %> <%= topic.replies.count == 1 ? "reply" : "replies" %>)
+    (<%= topic.replies.count -%>
+      <%= topic.replies.count == 1 ? "reply" : "replies" -%>
+      <%- if topic.last_reply -%>, last one by
+        <%= link_to h(topic.last_reply.author.name), topic.last_reply.author %>
+        <%= time_ago_in_words(topic.last_reply.created_at) %> ago
+      <%- end -%>)
   </div>
 
   <h2><%= link_to h(topic.subject), topic %></h2>

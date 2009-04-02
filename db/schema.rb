@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20090402181152) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "replies_count", :default => 0
+    t.integer  "last_reply_id"
   end
 
   create_table "users", :force => true do |t|
